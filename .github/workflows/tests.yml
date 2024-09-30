@@ -53,6 +53,11 @@ jobs:
             echo "name=export" >> ${GITHUB_OUTPUT}
           fi
 
+      - name: download ptcpdump
+        run: |
+          wget https://github.com/mozillazg/ptcpdump/releases/download/v0.23.0/ptcpdump_0.23.0_linux_amd64.tar.gz
+          tar zxvf ptcpdump_0.23.0_linux_amd64.tar.gz
+
       - name: "Restore cache for CCache"
         uses: actions/cache/restore@v4
         id: restore-ccache
